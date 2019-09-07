@@ -1,14 +1,6 @@
 
-src/.vs/homeWork6/v16/Server/sqlite3/db.lock
-
-src/.vs/homeWork6/v16/Server/sqlite3/storage.ide
-
-src/.vs/homeWork6/v16/Server/sqlite3/storage.ide-wal
-
-src/homeWork6/obj/Debug/homeWork6.csproj.CoreCompileInputs.cache
+src/.vs/*
 
 src/homeWork6/obj/Debug/homeWork6.csprojAssemblyReference.cache
 
-src/.vs/homeWork6/v16/Server/sqlite3/storage.ide-shm
-
-src/.vs/homeWork6/v16/.suo
+src/packages/*
