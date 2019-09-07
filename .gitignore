@@ -1,9 +1,5 @@
-
 src/.vs/*
-
-src/homeWork6/obj/Debug/homeWork6.csprojAssemblyReference.cache
-
 src/packages/*
-
 src/homeWork6/bin/*
 src/homeWork6/obj/*
+src/UsersData.json
