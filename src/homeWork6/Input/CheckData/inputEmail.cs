@@ -8,7 +8,7 @@ namespace homeWork6.Input.CheckData
 {
     class inputEmail
     {
-        public static string inputEmailUsers()
+        public static string inputEmailUser()
         {
             string email;
             bool emailIsValid = false;

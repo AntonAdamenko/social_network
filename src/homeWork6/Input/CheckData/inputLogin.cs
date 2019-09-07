@@ -8,7 +8,7 @@ namespace homeWork6.Input.CheckData
 {
     class inputLogin
     {
-        public static string inputLoginUsers()
+        public static string inputLoginUser()
         {
             string login = "";
             do

@@ -8,7 +8,7 @@ namespace homeWork6.Input.CheckData
 {
     class inputName
     {
-        public static string inputNameUsers()
+        public static string inputNameUser()
         {
             string name = "";
             do
