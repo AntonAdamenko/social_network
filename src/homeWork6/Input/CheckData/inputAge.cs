@@ -9,7 +9,7 @@ namespace homeWork6.Input.CheckData
     class inputAge
     {
 
-        public static int inputAgeUsers()
+        public static int inputAgeUser()
         {
             string userString1;
             bool IsInteger = false;
