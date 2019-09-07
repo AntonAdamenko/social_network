@@ -49,11 +49,11 @@
     <Compile Include="Input\CheckData\inputAge.cs" />
     <Compile Include="Input\CheckData\inputEmail.cs" />
     <Compile Include="Input\CheckData\inputLogin.cs" />
+    <Compile Include="Input\CheckData\inputPassword.cs" />
     <Compile Include="Input\Db.cs" />
     <Compile Include="Input\humanInSystem.cs" />
     <Compile Include="Input\CheckData\inputName.cs" />
     <Compile Include="Input\loginInSystem.cs" />
-    <Compile Include="Input\registration.cs" />
     <Compile Include="Input\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
