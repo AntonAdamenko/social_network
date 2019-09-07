@@ -54,6 +54,7 @@
     <Compile Include="Input\CheckData\inputName.cs" />
     <Compile Include="Input\loginInSystem.cs" />
     <Compile Include="Input\registration.cs" />
+    <Compile Include="Input\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
