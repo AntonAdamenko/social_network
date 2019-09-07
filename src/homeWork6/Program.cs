@@ -31,17 +31,16 @@ namespace homeWork6
                     Console.WriteLine("Регистация");
                     List<User> users = Db.LoadUsersFromFileStatic(DBFilePath);
 
-                    var name = inputName.inputNameUsers();
-                    var age = inputAge.inputAgeUsers();
-                    var login = inputLogin.inputLoginUsers();
+                    var name = inputName.inputNameUser();
+                    var age = inputAge.inputAgeUser();
+                    var login = inputLogin.inputLoginUser();
                     // TODO: изменить валидацию email
-                    var email = inputEmail.inputEmailUsers();
+                    var email = inputEmail.inputEmailUser();
+                    var password = inputPassword.inputPasswordUser();
 
-                    User user = new User(name, age, login, email);                    
+                    User user = new User(name, age, login, email, password);                    
                     users.Add(user);
                     Db.SaveUsersToFile(DBFilePath, users.ToArray());
-
-
                     break;
                 case 2:
                     Console.WriteLine("Логин");
