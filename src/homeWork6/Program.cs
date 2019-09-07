@@ -22,11 +22,14 @@ namespace homeWork6
 
             Console.WriteLine($"Добро пожаловать! \n Для регистрации нажмите 1 \n Чтобы войти в систему нажмите 2\n Если вы вошли нажмите 3");
             int userNumber = int.Parse(Console.ReadLine());
+            string DBFilePath = @"C:\Users\Antonio\source\repos\social_network\src\UsersData.json";
+            //var db = new Db(DBFilePath);
 
             switch (userNumber)
             {
                 case 1:
                     Console.WriteLine("Регистация");
+                    List<User> users = Db.LoadUsersFromFileStatic(DBFilePath);
 
                     var name = inputName.inputNameUsers();
                     var age = inputAge.inputAgeUsers();
@@ -34,10 +37,10 @@ namespace homeWork6
                     // TODO: изменить валидацию email
                     var email = inputEmail.inputEmailUsers();
 
-                    registration user = new registration(age, name, login, email);
-
-                    List<registration> users = new List<registration>();
+                    User user = new User(name, age, login, email);                    
                     users.Add(user);
+                    Db.SaveUsersToFile(DBFilePath, users.ToArray());
+
 
                     break;
                 case 2:
