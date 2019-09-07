@@ -31,6 +31,7 @@ namespace homeWork6
                     var name = inputName.inputNameUsers();
                     var age = inputAge.inputAgeUsers();
                     var login = inputLogin.inputLoginUsers();
+                    // TODO: изменить валидацию email
                     var email = inputEmail.inputEmailUsers();
 
                     registration user = new registration(age, name, login, email);
