@@ -28,12 +28,10 @@ namespace homeWork6
                 case 1:
                     Console.WriteLine("Регистация");
 
-                    inputName.inputNameUsers();
-                    inputAge.inputAgeUsers();
-                    inputLogin.inputLoginUsers();
-                    inputEmail.inputEmailUsers();
-
-
+                    var name = inputName.inputNameUsers();
+                    var age = inputAge.inputAgeUsers();
+                    var login = inputLogin.inputLoginUsers();
+                    var email = inputEmail.inputEmailUsers();
 
                     registration user = new registration(age, name, login, email);
 
