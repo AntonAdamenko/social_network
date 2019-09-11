@@ -10,20 +10,26 @@ namespace homeWork6.Input.CheckData
     {
         public static string inputPasswordUser()
         {
-             Console.WriteLine("Введите пароль");
-            string userPassword = "";
-            while (true)
+            Console.WriteLine("Введите пароль");
+            string userPassword = "";            
+            
+            bool passwordIsValid = false;
+            do
             {
-                char userChar = Console.ReadKey(true).KeyChar;
-                userPassword += userChar;
-                Console.Write("*");
-
-                if (userChar == '\r')
-                {
-                    Console.WriteLine("\n Ваш пароль: " + userPassword);
-                    break;
+                userPassword = Console.ReadLine();
+                int lengthUserPassword = userPassword.Length;
+                if (lengthUserPassword >= 6)
+                {                    
+                    passwordIsValid = true;
                 }
-            }
+                else
+                {                    
+                    Console.WriteLine("Пароль короткий. Придумайте длинней");
+                }
+                
+
+
+            } while (!passwordIsValid);
             return userPassword;
 
         }
