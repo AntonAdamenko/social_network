@@ -19,7 +19,7 @@ namespace homeWork6.Input
 
         public static void SaveUsersToFile(string path, User [] users)
         {            
-            // TODO: users --> jsonString
+           
             string jsonString = GateJsonFromObject(users);
             using (FileStream fStream = File.Create(path))
             {
@@ -30,10 +30,10 @@ namespace homeWork6.Input
         }
         public List<User> LoadUsersFromFile()
         {
-            //string path = @"C:\\Users\Антон\source\repos\Занятие8\lesson8\UsersData.json";
+            
             string s = "";
 
-            using (System.IO.FileStream fStream = File.OpenRead(this.filePath))
+            using (FileStream fStream = File.OpenRead(this.filePath))
             {
                 byte[] bytesArray = new byte[fStream.Length];
                 fStream.Read(bytesArray, 0, bytesArray.Length);
@@ -41,7 +41,7 @@ namespace homeWork6.Input
             }
             Console.WriteLine("Файл успешно загружен");
 
-            User[] users = Newtonsoft.Json.JsonConvert.DeserializeObject<User[]>(s);
+            User[] users = JsonConvert.DeserializeObject<User[]>(s);
 
             foreach (User item in users)
             {
@@ -51,10 +51,10 @@ namespace homeWork6.Input
         }
         public static List<User> LoadUsersFromFileStatic(string path)
         {
-            //string path = @"C:\\Users\Антон\source\repos\Занятие8\lesson8\UsersData.json";
+            
             string s = "";
 
-            using (System.IO.FileStream fStream = File.OpenRead(path))
+            using (FileStream fStream = File.OpenRead(path))
             {
                 byte[] bytesArray = new byte[fStream.Length];
                 fStream.Read(bytesArray, 0, bytesArray.Length);
@@ -67,7 +67,7 @@ namespace homeWork6.Input
                 s = "[]";
             }
 
-            User[] users = Newtonsoft.Json.JsonConvert.DeserializeObject<User[]>(s);
+            User[] users = JsonConvert.DeserializeObject<User[]>(s);
 
             foreach (User item in users)
             {
