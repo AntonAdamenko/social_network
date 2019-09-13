@@ -22,7 +22,7 @@ namespace homeWork6.Input.CheckData
                 {
                     Console.WriteLine("Это пустая строка. Введите еще раз");
                 }
-                else if (userPassword.Length <= 6)
+                else if (userPassword.Length < 6)
                 {
                     Console.WriteLine("Пароль должен содержать минимум 6 символов");
                 }
