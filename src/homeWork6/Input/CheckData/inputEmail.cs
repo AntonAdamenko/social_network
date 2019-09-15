@@ -16,30 +16,19 @@ namespace homeWork6.Input.CheckData
             {
                 Console.WriteLine("Введите Email");
                 email = Console.ReadLine();
-                 
+
                 if (string.IsNullOrEmpty(email))
                 {
                     Console.WriteLine("Это пустая строка. Enter-повторный ввод.Esc-выход");
-                }   
-                
-                if (email.Contains('@'))
-                {
-                    int emalCharIndex = email.IndexOf("@");
-                    string rightPart = email.Substring(emalCharIndex, email.Length - emalCharIndex);
-                    if (rightPart.Length <= 2)
-                    {
-                        Console.WriteLine("После символа @ необходимо указать доменное имя");
-                    }                    
                 }
-                else
+                else if (checkAtEmail(email) == true)
                 {
-                    Console.WriteLine("Email должен содержать @");
+                    continue;
                 }
-
-                if (email.Contains(".com") || email.Contains(".ru") || email.Contains(".travel"))
+                else if (email.Contains(".com") || email.Contains(".ru") || email.Contains(".travel"))
                 {
                     emailIsValid = true;
-                }               
+                }
                 else
                 {
                     Console.WriteLine("Email введен не корректно. Укажите домен (например: .com, .ru, .travel).  Enter-повторный ввод. Esc-выход");
@@ -54,7 +43,26 @@ namespace homeWork6.Input.CheckData
             } while (!emailIsValid);
             return email;
 
-           
+           bool checkAtEmail(string str)
+            {
+                if (str.Contains('@'))
+                {
+                    int emalCharIndex = str.IndexOf("@");
+                    string rightPart = str.Substring(emalCharIndex, str.Length - emalCharIndex);
+
+                    if (rightPart.Length <= 2)
+                    {
+                        Console.WriteLine("После символа @ необходимо указать доменное имя");
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Email должен содержать @");
+                    return true;
+                }
+                return false;
+            }
 
         }
 
