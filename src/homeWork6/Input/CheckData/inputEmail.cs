@@ -16,40 +16,27 @@ namespace homeWork6.Input.CheckData
             {
                 Console.WriteLine("Введите Email");
                 email = Console.ReadLine();
-
-                /*
-                //todo: обработать ошибку отсутствия символа @ в строке.
-                try
-                {
-                    if (!email.Contains('@'))
-                    {
-
-                    }
-                }
-                catch (System.ArgumentOutOfRangeException)
-                {
-                    Console.WriteLine("нет такого элемента");
-                }
-                */
-
-
-                int emalCharIndex = email.IndexOf("@");
-                string rightPart = email.Substring(emalCharIndex, email.Length - emalCharIndex);
-
-
+                 
                 if (string.IsNullOrEmpty(email))
                 {
                     Console.WriteLine("Это пустая строка. Enter-повторный ввод.Esc-выход");
-                }                
-                else if (!email.Contains('@'))
+                }   
+                
+                if (email.Contains('@'))
                 {
-                    Console.WriteLine("Email введен не корректно.Enter-повторный ввод. Esc-выход");
-                }              
-                else if (rightPart.Length <= 2)
-                {
-                    Console.WriteLine("После символа @ необходимо указать доменное имя");                                       
+                    int emalCharIndex = email.IndexOf("@");
+                    string rightPart = email.Substring(emalCharIndex, email.Length - emalCharIndex);
+                    if (rightPart.Length <= 2)
+                    {
+                        Console.WriteLine("После символа @ необходимо указать доменное имя");
+                    }                    
                 }
-                else if (email.Contains(".com") || email.Contains(".ru") || email.Contains(".travel"))
+                else
+                {
+                    Console.WriteLine("Email должен содержать @");
+                }
+
+                if (email.Contains(".com") || email.Contains(".ru") || email.Contains(".travel"))
                 {
                     emailIsValid = true;
                 }               
