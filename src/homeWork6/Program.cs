@@ -29,19 +29,22 @@ namespace homeWork6
             {
                 case 1:
                     Console.WriteLine("Регистация");
+
                     List<User> users = Db.LoadUsersFromFileStatic(DBFilePath);
 
                     var name = inputName.inputNameUser();
                     var age = inputAge.inputAgeUser();
-                    var login = inputLogin.inputLoginUser();
-                    // TODO: изменить валидацию email
+                    var login = inputLogin.inputLoginUser();                   
                     var email = inputEmail.inputEmailUser();
                     var password = inputPassword.inputPasswordUser();
+                    var ID = generateID.GenerateId();
 
-                    User user = new User(name, age, login, email, password);                    
+                    User user = new User(name, age, login, email, password, ID) ;                    
                     users.Add(user);
                     Db.SaveUsersToFile(DBFilePath, users.ToArray());
+
                     break;
+
                 case 2:
                     Console.WriteLine("Логин");
 
@@ -53,7 +56,7 @@ namespace homeWork6
                     Console.WriteLine("Пользователь в системе");
                     break;
                 default:
-                    Console.WriteLine("Для выхода нажмите Esc. Для повторного вызова меню нажмите 7");
+                    Console.WriteLine("Для выхода нажмите Esc.");
                     break;
             }
 
