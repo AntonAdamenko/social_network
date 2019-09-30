@@ -17,20 +17,23 @@ namespace homeWork6.Input
             this.filePath = filePath;
         }
 
-        public static void SaveUsersToFile(string path, User [] users)
-        {            
-           
+        public static void SaveUsersToFile(string path, User[] users)
+        {
+
             string jsonString = GateJsonFromObject(users);
             using (FileStream fStream = File.Create(path))
             {
                 byte[] bytesArray = Encoding.Default.GetBytes(jsonString);
                 fStream.Write(bytesArray, 0, bytesArray.Length);
             }
-            Console.WriteLine("файл успешно сохранен в" + path);
+            Console.WriteLine("Файл успешно сохранен в " + path);
+
+           
+
         }
         public List<User> LoadUsersFromFile()
         {
-            
+
             string s = "";
 
             using (FileStream fStream = File.OpenRead(this.filePath))
@@ -51,7 +54,7 @@ namespace homeWork6.Input
         }
         public static List<User> LoadUsersFromFileStatic(string path)
         {
-            
+
             string s = "";
 
             using (FileStream fStream = File.OpenRead(path))
@@ -74,11 +77,17 @@ namespace homeWork6.Input
                 item.Print();
             }
             return new List<User>(users);
+
+
         }
         private static string GateJsonFromObject(object obj)
         {
             string s = JsonConvert.SerializeObject(obj);
             return s;
         }
+        
+        
+
+
     }
 }
