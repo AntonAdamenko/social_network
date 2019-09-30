@@ -51,6 +51,7 @@
     <Compile Include="Input\CheckData\inputLogin.cs" />
     <Compile Include="Input\CheckData\inputPassword.cs" />
     <Compile Include="Input\Db.cs" />
+    <Compile Include="Input\generateID.cs" />
     <Compile Include="Input\humanInSystem.cs" />
     <Compile Include="Input\CheckData\inputName.cs" />
     <Compile Include="Input\loginInSystem.cs" />
