@@ -19,14 +19,14 @@ namespace homeWork6.Input
 
             
 
-            string log = inputLogin.inputLoginUser();
+            //string log = inputLogin.inputLoginUser();
 
             //Console.WriteLine("Повторите ввод");
             //string userLogin = Console.ReadLine();
 
             foreach (User item in users)
             {
-                if (item.Login == log)
+                if (item.Login == inputLogin.inputLoginUser())
                 {
                     Console.WriteLine("Введите пароль");
                     string pass = Console.ReadLine();
