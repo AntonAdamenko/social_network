@@ -15,18 +15,18 @@ namespace homeWork6.Input
         public string Password { private set; get; }
         public string ID { private set; get; }
 
-        public User(string name, int age, string email, string login, string password, string id)
+        public User(string name, int age, string login, string email, string password, string id)
         {
             Name = name;
-            Age = age;
-            Email = email;
+            Age = age;            
             Login = login;
+            Email = email;
             Password = password;
             ID = id;
         }
         public void Print()
         {
-            Console.WriteLine($"имя: {Name} возраст: {Age} Email {Email} Login {Login} Password {Password} ID {ID}");
+            Console.WriteLine($"Имя: {Name} Возраст: {Age}  Login {Login} Email {Email} Password {Password} ID {ID}");
         }
 
     }
