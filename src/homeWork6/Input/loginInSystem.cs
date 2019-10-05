@@ -17,28 +17,51 @@ namespace homeWork6.Input
             string DBFilePath = @"C:\Users\Antonio\source\repos\social_network\src\UsersData.json";
             List<User> users = Db.LoadUsersFromFileStatic(DBFilePath);
 
+
+            Console.WriteLine("Введите логин");
+            string getLogin = Console.ReadLine();           
+           
+
+            //User findUser = users.FirstOrDefault(item => item.Login == getLogin);             
             
 
-            //string log = inputLogin.inputLoginUser();
 
-            //Console.WriteLine("Повторите ввод");
-            //string userLogin = Console.ReadLine();
-
+            //todo: вместо foreach реализовать другой поиск пользователей в массиве.
             foreach (User item in users)
-            {
-                if (item.Login == inputLogin.inputLoginUser())
+            {               
+                if (item.Login == getLogin)
                 {
+
+                    //todo: Скрыть пароль *.  passwordIsValid();
                     Console.WriteLine("Введите пароль");
                     string pass = Console.ReadLine();
                     if (item.Password == pass)
-                    {
-                        Console.WriteLine($"Добро пожаловать в систему {item.Name}");
+                    {                       
+                        Console.WriteLine("Повторите пароль");
+                        string userPass = Console.ReadLine();
+                        if (pass == userPass)
+                        {
+                            Console.WriteLine($"Добро пожаловать в систему {item.Name}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Пароль не совпал");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("Пароль не совпал. Можно восстановить пароль.");
-                        string userEmail = inputEmail.inputEmailUser();
-                        //todo: проверить есть ли такой email в базе и отправить на него инструкцию по смене пароля.
+                        Console.WriteLine("Пароль не верный. Можно восстановить пароль.");
+                        Console.WriteLine("Введите Email");
+                        string getEmail = Console.ReadLine();
+
+                        if (item.Email == getEmail)
+                        {
+                            Console.WriteLine($"Инструкция смены пароля отправлена на почту:  {item.Email}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Email введен не правильно");
+                        }                                        
                     }
                 }
                 else
@@ -46,11 +69,10 @@ namespace homeWork6.Input
                     Console.WriteLine("Такого пользователя нет. Зарегистрируйтесь");
                 }
             }
+            
+            
 
 
-
-
-            //return userLogin;
         }
         public static string passwordIsValid()
         {
