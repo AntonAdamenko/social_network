@@ -29,17 +29,17 @@ namespace homeWork6.Input
             //todo: вместо foreach реализовать другой поиск пользователей в массиве.
             foreach (User item in users)
             {               
-                if (item.Login == getLogin)
+                if (item.Login.Equals(getLogin))
                 {
 
                     //todo: Скрыть пароль *.  passwordIsValid();
                     Console.WriteLine("Введите пароль");
                     string pass = Console.ReadLine();
-                    if (item.Password == pass)
+                    if (item.Password.Equals(pass))
                     {                       
                         Console.WriteLine("Повторите пароль");
                         string userPass = Console.ReadLine();
-                        if (pass == userPass)
+                        if (pass.Equals(userPass))
                         {
                             Console.WriteLine($"Добро пожаловать в систему {item.Name}");
                         }
@@ -54,7 +54,7 @@ namespace homeWork6.Input
                         Console.WriteLine("Введите Email");
                         string getEmail = Console.ReadLine();
 
-                        if (item.Email == getEmail)
+                        if (item.Email.Equals(getEmail))
                         {
                             Console.WriteLine($"Инструкция смены пароля отправлена на почту:  {item.Email}");
                         }
