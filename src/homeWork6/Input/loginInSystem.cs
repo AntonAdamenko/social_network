@@ -18,17 +18,19 @@ namespace homeWork6.Input
                                    
             string getLogin = inputLogin.inputLoginUser();       
 
-            User findUser = users.FirstOrDefault(item => item.Login == getLogin);         
-                                   
+            User findUser = users.FirstOrDefault(item => item.Login == getLogin);
+
+            try
+            {
                 if (findUser.Login.Equals(getLogin))
                 {
                     //todo: Скрыть пароль *.  hidePassword();
 
                     Console.WriteLine("Введите пароль");
-                    string pass = Console.ReadLine();                    
+                    string pass = Console.ReadLine();
 
                     if (findUser.Password.Equals(pass))
-                    {                       
+                    {
                         Console.WriteLine("Повторите пароль");
                         string userPass = Console.ReadLine();
                         if (pass.Equals(userPass))
@@ -53,13 +55,15 @@ namespace homeWork6.Input
                         else
                         {
                             Console.WriteLine("Email введен не правильно");
-                        }                                        
+                        }
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Такого пользователя нет. Зарегистрируйтесь");
-                }                    
+            }
+
+            catch (System.NullReferenceException)
+            {                   
+               Console.WriteLine("Такого пользователя нет. Зарегистрируйтесь");                
+            }
         }        
     }
 }
