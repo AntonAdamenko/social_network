@@ -14,8 +14,8 @@ namespace homeWork6
         enum menu
         {
             registration = 1,
-            loginInSistem = 2,
-            humanInSistem = 3
+            loginIn = 2,
+            userInSystemNow = 3
         }
         static void Main(string[] args)
         {
@@ -39,7 +39,7 @@ namespace homeWork6
                     var password = inputPassword.inputPasswordUser();
                     var ID = generateID.GenerateId();
 
-                    User user = new User(name, age, login, email, password, ID) ;                    
+                    User user = new User(name, age, login, email, password, ID);                    
                     users.Add(user);
                     Db.SaveUsersToFile(DBFilePath, users.ToArray());
 
@@ -47,14 +47,15 @@ namespace homeWork6
 
                 case 2:
                     Console.WriteLine("Логин");
-
                     
-                    loginInSystem.loginIsValid();
-                    
+                    loginIn.userInSystem();                   
 
                     break;
                 case 3:
                     Console.WriteLine("Пользователь в системе");
+
+                    userInSystemNow.userInSystem();
+
                     break;
                 default:
                     Console.WriteLine("Для выхода нажмите Esc.");
