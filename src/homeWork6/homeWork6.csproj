@@ -53,10 +53,10 @@
     <Compile Include="Input\Db.cs" />
     <Compile Include="Input\generateID.cs" />
     <Compile Include="Input\hidePassword.cs" />
-    <Compile Include="Input\humanInSystem.cs" />
     <Compile Include="Input\CheckData\inputName.cs" />
-    <Compile Include="Input\loginInSystem.cs" />
+    <Compile Include="Input\loginIn.cs" />
     <Compile Include="Input\User.cs" />
+    <Compile Include="Input\userInSystemNow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
