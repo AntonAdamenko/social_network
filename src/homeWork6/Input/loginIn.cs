@@ -9,21 +9,20 @@ using homeWork6.Input.CheckData;
 
 namespace homeWork6.Input
 {
-    class loginInSystem
+    class loginIn
     {    
-        public static void loginIsValid()
+        public static void userInSystem()
         {
             string DBFilePath = @"C:\Users\Antonio\source\repos\social_network\src\UsersData.json";
             List<User> users = Db.LoadUsersFromFileStatic(DBFilePath);
-                                   
-            string getLogin = inputLogin.inputLoginUser();       
+
+            string getLogin = inputLogin.inputLoginUser();
+            
 
             User findUser = users.FirstOrDefault(item => item.Login == getLogin);
 
             try
-            {
-                if (findUser.Login.Equals(getLogin))
-                {
+            {                
                     //todo: Скрыть пароль *.  hidePassword();
 
                     Console.WriteLine("Введите пароль");
@@ -56,11 +55,9 @@ namespace homeWork6.Input
                         {
                             Console.WriteLine("Email введен не правильно");
                         }
-                    }
-                }
+                    }                
             }
-
-            catch (System.NullReferenceException)
+            catch (NullReferenceException)
             {                   
                Console.WriteLine("Такого пользователя нет. Зарегистрируйтесь");                
             }
