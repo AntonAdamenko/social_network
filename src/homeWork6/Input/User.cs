@@ -12,7 +12,7 @@ namespace homeWork6.Input
         public int Age { private set; get; }
         public string Email { private set; get; }
         public string Login { private set; get; }
-        public string Password { private set; get; }
+        public string Password;
         public string ID { private set; get; }
 
         public User(string name, int age, string login, string email, string password, string id)
