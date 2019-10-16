@@ -17,11 +17,7 @@ namespace homeWork6.Input
 
 
         public static void userInSystem()
-        {
-            string DBFilePath = @"C:\Users\Antonio\source\repos\social_network\src\UsersData.json";
-            List<User> users = Db.LoadUsersFromFileStatic(DBFilePath);
-
-            
+        {                               
             Console.WriteLine("Вы в системе. \n Нажмите 1 для удаления профиля. \n Нажмите 2 для того чтобы сменить пароль.");
             int userNumber = int.Parse(Console.ReadLine());
 
@@ -36,7 +32,7 @@ namespace homeWork6.Input
                 case 2:
                     {
                         Console.WriteLine("Смена пароля");
-
+                        changePassword();
                         break;
                     }
             }
@@ -68,10 +64,40 @@ namespace homeWork6.Input
 
             string getLogin = inputLogin.inputLoginUser();
 
-            User findUser = users.FirstOrDefault(item => item.Login == getLogin);
+            
 
+            try
+            {
+                User findUser = users.FirstOrDefault(item => item.Login == getLogin);
 
+                Console.WriteLine("Введите старый пароль");
+                string pass = Console.ReadLine();
 
+                if (findUser.Password.Equals(pass))
+                {
+                    Console.WriteLine("Повторите старый пароль");
+                    string userPass = Console.ReadLine();
+                    if (pass.Equals(userPass))
+                    {                        
+                        string newPassword = inputPassword.inputPasswordUser();
+                        findUser.Password = findUser.Password.Replace(userPass, newPassword);                        
+                        Console.WriteLine($"Пользователь {findUser.Name} заменил пароль.");
+                        Db.SaveUsersToFile(DBFilePath, users.ToArray());
+                    }
+                    else
+                    {
+                        Console.WriteLine("Пароль не совпал");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Пароль не верный.");
+                }
+            }
+            catch (NullReferenceException)
+            {            
+               Console.WriteLine("Такого пользователя нет.");                
+            }
         }
     }
 }
