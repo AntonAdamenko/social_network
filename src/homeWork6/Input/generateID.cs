@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,17 +10,41 @@ namespace homeWork6.Input
 {
     class generateID
     {       
-            public static string GenerateId()
+            public static int GenerateId()
+            {           
+
+            string DBFilePath = @"C:\Users\Antonio\source\repos\social_network\src\UsersData.json";           
+
+            string s = "";
+
+            using (FileStream fStream = File.OpenRead(DBFilePath))
             {
+                byte[] bytesArray = new byte[fStream.Length];
+                fStream.Read(bytesArray, 0, bytesArray.Length);
+                s = Encoding.Default.GetString(bytesArray);
+            }           
 
-                byte[] buffer = Guid.NewGuid().ToByteArray();
-                var FormNumber = BitConverter.ToUInt32(buffer, 0) ^ BitConverter.ToUInt32(buffer, 4) ^ BitConverter.ToUInt32(buffer, 8) ^ BitConverter.ToUInt32(buffer, 12);
-                string ID = FormNumber.ToString("X");
-
-                return ID;
-
+            if (s == "")
+            {
+                s = "[]";
             }
-        
+
+            User[] users = JsonConvert.DeserializeObject<User[]>(s);
+            
+            int ID = users.Length+1;
+
+            foreach (User item in users)
+            {
+                if (ID.Equals(item.ID))
+                {
+                    ID = item.ID + 1;                    
+                }                
+            }  
+            
+            return ID;
+
+        }
+
     }
 }
 
