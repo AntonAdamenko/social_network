@@ -28,7 +28,7 @@ namespace homeWork6.Input
         }
         public void Print()
         {
-            Console.WriteLine($"Имя: {Name} Возраст: {Age}  Login {Login} Email {Email} hashString {Salt} Password {Password} ID {ID}");
+            Console.WriteLine($"Имя: {Name} Возраст: {Age}  Login {Login} Email {Email} salt {Salt} Password {Password} ID {ID}");
         }
 
     }
