@@ -15,7 +15,8 @@ namespace homeWork6
         {
             registration = 1,
             loginIn = 2,
-            userInSystemNow = 3
+            userInSystemNow = 3,
+            test=4
         }
         static void Main(string[] args)
         {
@@ -36,10 +37,11 @@ namespace homeWork6
                     var age = inputAge.inputAgeUser();
                     var login = inputLogin.inputLoginUser();                   
                     var email = inputEmail.inputEmailUser();
-                    var password = inputPassword.inputPasswordUser();
+                    var salt = hashClass.salt(10);
+                    var password = hashClass.hashPasswordRegistration(salt);
                     var ID = generateID.GenerateId();
 
-                    User user = new User(name, age, login, email, password, ID);                    
+                    User user = new User(name, age, login, email, salt, password, ID);                    
                     users.Add(user);
                     Db.SaveUsersToFile(DBFilePath, users.ToArray());
 
@@ -57,6 +59,12 @@ namespace homeWork6
                     userInSystemNow.userInSystem();
 
                     break;
+                case 4:
+                    Console.WriteLine("test");
+                    var randomString = hashClass.salt(10);
+                    Console.WriteLine(randomString);
+                    break;
+
                 default:
                     Console.WriteLine("Для выхода нажмите Esc.");
                     break;
