@@ -23,7 +23,7 @@ namespace homeWork6
 
             Console.WriteLine($"Добро пожаловать! \n Для регистрации нажмите 1 \n Чтобы войти в систему нажмите 2\n Если вы вошли нажмите 3");
             int userNumber = int.Parse(Console.ReadLine());
-            string DBFilePath = @"C:\Users\Antonio\source\repos\social_network\src\UsersData.json";
+            string DBFilePath = @"C:\Users\Anton\source\repos\social_network\src\UsersData.json";
             //var db = new Db(DBFilePath);
 
             switch (userNumber)
