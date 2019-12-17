@@ -13,26 +13,27 @@ namespace homeWork6.Input
     {    
         public static void userInSystem()
         {
-            string DBFilePath = @"C:\Users\Antonio\source\repos\social_network\src\UsersData.json";
+            string DBFilePath = @"C:\Users\Anton\source\repos\social_network\src\UsersData.json";
             List<User> users = Db.LoadUsersFromFileStatic(DBFilePath);
 
             string getLogin = inputLogin.inputLoginUser();
             
 
             User findUser = users.FirstOrDefault(item => item.Login == getLogin);
-
+            
             try
-            {                
-                    //todo: Скрыть пароль *.  hidePassword();
-
+            {
+                //todo: Скрыть пароль *.  hidePassword();
+                    var getSalt = findUser.Salt;
                     Console.WriteLine("Введите пароль");
                     string pass = Console.ReadLine();
-
-                    if (findUser.Password.Equals(pass))
+                    var getHashPass1 = hashClass.EncryptPassword(pass, getSalt);
+                    if (findUser.Password.Equals(getHashPass1))
                     {
                         Console.WriteLine("Повторите пароль");
                         string userPass = Console.ReadLine();
-                        if (pass.Equals(userPass))
+                        var getHashPass2 = hashClass.EncryptPassword(userPass, getSalt);
+                       if (getHashPass1.Equals(getHashPass2))
                         {
                             Console.WriteLine($"Добро пожаловать в систему {findUser.Name}");
                         }
