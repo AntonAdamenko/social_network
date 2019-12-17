@@ -40,7 +40,7 @@ namespace homeWork6.Input
 
         public static void deleteUser()
         {
-            string DBFilePath = @"C:\Users\Antonio\source\repos\social_network\src\UsersData.json";
+            string DBFilePath = @"C:\Users\Anton\source\repos\social_network\src\UsersData.json";
             List<User> users = Db.LoadUsersFromFileStatic(DBFilePath);
 
             string getLogin = inputLogin.inputLoginUser();
@@ -59,7 +59,7 @@ namespace homeWork6.Input
         }
         public static void changePassword()
         {
-            string DBFilePath = @"C:\Users\Antonio\source\repos\social_network\src\UsersData.json";
+            string DBFilePath = @"C:\Users\Anton\source\repos\social_network\src\UsersData.json";
             List<User> users = Db.LoadUsersFromFileStatic(DBFilePath);
 
             string getLogin = inputLogin.inputLoginUser();
